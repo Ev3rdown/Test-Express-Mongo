@@ -37,3 +37,10 @@ db.createUser({
 })
 ```
   
+Pour créer le docker puis y accéder:
+```Bash
+nano mongod.conf #contenu YAML si-dessus
+chmod 777 mongod.conf
+sudo docker run -d --name some-mongol -p 55555:27017 -v /path/to/mongod.conf:/etc/mongod.conf mongo --config /etc/mongod.conf --bind_ip_all
+sudo docker exec -it some-mongol /bin/bash 
+```
